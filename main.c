@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:38:46 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/06 16:29:22 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/06 17:44:29 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ int	main(int argc, char **argv)
 			sort_three(a);
 			printf("the params are sorted\n");
 		}
-		else if (argc == 5)
-			sort_five(a);
-		else
-			sort_param(a, b);
+	// 	else if (argc == 5)
+	// 		sort_five(a);
+	// 	else
+	// 		sort_param(a, b);
 	}
 	return (0);
 }

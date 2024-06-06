@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:31:02 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/03 18:09:28 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/06 17:43:15 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,11 @@ typedef struct s_list_push_swap
 	struct s_list_push_swap	*prev;
 	struct s_list_push_swap	*next;
 }				t_list_push_swap;
+
+int		syntax_error(char *argv);
+void	swap(t_list_push_swap *stack);
+int		sorted_stack(t_list_push_swap *a);
+void	sort_three(t_list_push_swap *a);
+long	ft_atol(const char *s);
 
 #endif
