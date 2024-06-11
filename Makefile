@@ -5,7 +5,7 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 INCLUDES = -I $(LIBFT_DIR)/includes
 
-SRC = errors.c main.c operations.c sort_params.c subordinate_func.c utils.c
+SRC = errors.c main.c operations.c sort_params.c subordinate_func.c utils.c s_split.c swap.c rotate.c reverse_rotate.c
 OBJ = $(SRC:.c=.o)
 
 # Rules

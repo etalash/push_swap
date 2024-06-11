@@ -6,13 +6,13 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:38:46 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/06 17:44:29 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/11 19:23:39 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list_push_swap	*ft_lst_last(t_list_push_swap *lst)
+t_stack	*ft_lst_last(t_stack *lst)
 {
 	if (lst == NULL)
 		return (NULL);
@@ -23,11 +23,11 @@ t_list_push_swap	*ft_lst_last(t_list_push_swap *lst)
 	return (lst);
 }
 
-t_list_push_swap	*create_node(int num)
+t_stack	*create_node(int num)
 {
-	t_list_push_swap	*new_node;
+	t_stack	*new_node;
 
-	new_node = (t_list_push_swap *)malloc(sizeof(t_list));
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node == NULL)
 		return (NULL);
 	new_node->nbr = num;
@@ -36,10 +36,10 @@ t_list_push_swap	*create_node(int num)
 	return (new_node);
 }
 
-static void	appened_to_stack_a(t_list_push_swap **a_stack, int num)
+static void	appened_to_stack_a(t_stack **a_stack, int num)
 {
-	t_list_push_swap	*new_node;
-	t_list_push_swap	*last_node;
+	t_stack	*new_node;
+	t_stack	*last_node;
 
 	if (a_stack == NULL)
 		return ;
@@ -57,7 +57,7 @@ static void	appened_to_stack_a(t_list_push_swap **a_stack, int num)
 	}
 }
 
-void	add_to_stack_a(t_list_push_swap **a, char **argv)
+void	add_to_stack_a(t_stack **a, char **argv, bool argc)
 {
 	long	num;
 	int		i;
@@ -66,18 +66,12 @@ void	add_to_stack_a(t_list_push_swap **a, char **argv)
 	while (argv[i] != NULL)
 	{
 		if (syntax_error(argv[i]) == 1)
-		{
-			printf("there are syntax errors in the function\n");
-			return ;
-			//realloc(a); // make this functioin
-		}
+			dealloc(a, argv, argc);
 		num = ft_atol((const char *)argv[i]);
 		if (num < INT_MIN || num > INT_MAX)
-		{
-			printf("the number is above or under the integer limits\n");
-			return ;
-			//realloc(a); // also
-		}
+			dealloc(a, argv, argc);
+		if (repeated_num(*a, (int)num) == 1)
+			dealloc(a, argv, argc);
 		appened_to_stack_a(a, (int)num);
 		i++;
 	}
@@ -85,16 +79,16 @@ void	add_to_stack_a(t_list_push_swap **a, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_list_push_swap	*a;
-	t_list_push_swap	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
-	// if (argc == 2)
-	// 	argv = ft_split(argv[1], 32);
-	add_to_stack_a(&a, argv + 1);
+	if (argc == 2)
+		argv = s_split(argv[1], ' ');
+	add_to_stack_a(&a, argv + 1, argc == 2);
 	if (sorted_stack(a) != 1)
 	{
 		if (argc == 4)
