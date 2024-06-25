@@ -1,3 +1,4 @@
+
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -5,7 +6,7 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 INCLUDES = -I $(LIBFT_DIR)/includes
 
-SRC = errors.c main.c operations.c sort_params.c subordinate_func.c utils.c s_split.c swap.c rotate.c reverse_rotate.c
+SRC = errors.c helper_func.c main.c push.c reverse_rotate.c rotate.c s_split.c sort_params.c sort.c sort1.c subordinate_func.c swap.c utils.c
 OBJ = $(SRC:.c=.o)
 
 # Rules
