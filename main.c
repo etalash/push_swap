@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:38:46 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/25 18:09:13 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 15:26:35 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ void	add_to_stack_a(t_stack **a, char **argv, bool argc)
 
 // 	a = NULL;
 // 	b = NULL;
-// 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-// 		return (1);
-// 	if (argc == 2)
-// 		argv = s_split(argv[1], ' ');
-// 	add_to_stack_a(&a, argv + 1, argc == 2);
+	// if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	// 	return (1);
+	// if (argc == 2)
+	// 	argv = s_split(argv[1], ' ');
+	// add_to_stack_a(&a, argv + 1, argc == 2);
 // 	if (sorted_stack(a) == 1)
 // 	{
 // 		if (stack_len(a) == 2 || stack_len(a) == 3)
@@ -107,17 +107,17 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (1 == argc || (2 == argc && !argv[1][0]))
+	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
-	else if (2 == argc)
+	if (argc == 2)
 		argv = s_split(argv[1], ' ');
-	add_to_stack_a(&a, argv + 1, 2 == argc);
+	add_to_stack_a(&a, argv + 1, argc == 2);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, false);
+			simple_sort(&a);
 		else if (stack_len(a) == 3)
-			tiny_sort(&a);
+			simple_sort(&a);
 		else
 			push_swap(&a, &b);
 	}

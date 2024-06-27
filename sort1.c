@@ -6,18 +6,15 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 17:33:47 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/25 18:20:22 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 14:56:45 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
- * Check if a given stack is sorted
-*/
 bool	stack_sorted(t_stack *stack)
 {
-	if (NULL == stack)
+	if (stack == NULL)
 		return (1);
 	while (stack->next)
 	{
@@ -28,25 +25,27 @@ bool	stack_sorted(t_stack *stack)
 	return (true);
 }
 
-static t_stack *find_highest(t_stack *stack)
-{
-	int				highest;
-	t_stack			*highest_node;
+// dont need this one
 
-	if (NULL == stack)
-		return (NULL);
-	highest = INT_MIN;
-	while (stack)
-	{
-		if (stack->nbr > highest)
-		{
-			highest = stack->nbr;
-			highest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (highest_node);
-}
+// static t_stack	*find_highest(t_stack *stack)
+// {
+// 	int		highest;
+// 	t_stack	*highest_node;
+
+// 	if (NULL == stack)
+// 		return (NULL);
+// 	highest = INT_MIN;
+// 	while (stack)
+// 	{
+// 		if (stack->nbr > highest)
+// 		{
+// 			highest = stack->nbr;
+// 			highest_node = stack;
+// 		}
+// 		stack = stack->next;
+// 	}
+// 	return (highest_node);
+// }
 
 /*
  * When i have 3 nodes, easy to sort
@@ -55,23 +54,23 @@ static t_stack *find_highest(t_stack *stack)
  * 	~Now i have forcefully the Biggest at the bottom
  * 		so i just chek 1° and 2°
 */
-void	tiny_sort(t_stack **a)
-{
-	t_stack	*highest_node;
+// void	tiny_sort(t_stack **a)
+// {
+// 	t_stack	*highest_node;
 
-	highest_node = find_highest(*a);
-	if (*a == highest_node)
-		ra(a, false);
-	else if ((*a)->next == highest_node)
-		rra(a, false);
-	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a, false);
-}
+// 	highest_node = find_highest(*a);
+// 	if (*a == highest_node)
+// 		ra(a, false);
+// 	else if ((*a)->next == highest_node)
+// 		rra(a, false);
+// 	if ((*a)->nbr > (*a)->next->nbr)
+// 		sa(a, false);
+// }
 
 /*
  * Handle input 5
 */
-void	handle_five(t_stack **a, t_stack **b)
+void	sort_five(t_stack **a, t_stack **b)
 {
 	while (stack_len(*a) > 3)
 	{

@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:47:02 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/25 18:28:44 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 14:27:41 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,15 @@ t_stack	*return_cheapest(t_stack *stack)
 
 int	stack_len(t_stack *stack)
 {
-	int	count;
+	int	i;
 
-	if (NULL == stack)
+	if (stack == NULL)
 		return (0);
-	count = 0;
+	i = 0;
 	while (stack)
 	{
-		++count;
+		i++;
 		stack = stack->next;
 	}
-	return (count);
+	return (i);
 }

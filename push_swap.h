@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:31:02 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/25 18:34:48 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 15:08:51 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 // }				t_stack;
 
 # include <stdlib.h>
+# include "./libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <unistd.h>
@@ -49,7 +50,7 @@ typedef struct s_stack_node
 
 // int		syntax_error(char *argv);
 
-int		syntax_error(const char *argv);
+bool	syntax_error(const char *str);
 long	ft_atol(const char *s);
 char	**s_split(char const *s, char c);
 void	deallocation(t_stack **a);
@@ -78,8 +79,8 @@ void	pb(t_stack **a, t_stack **b, bool check);
 
 // soring
 bool	stack_sorted(t_stack *stack);
-void	tiny_sort(t_stack **a);
-void	handle_five(t_stack **a, t_stack **b);
+// void	tiny_sort(t_stack **a);
+void	sort_five(t_stack **a, t_stack **b);
 void	finish_rotation(t_stack **stack, t_stack *top_node, char stack_name);
 void	push_swap(t_stack **a, t_stack **b);
 void	set_current_position(t_stack *stack);
@@ -89,5 +90,6 @@ void	init_nodes(t_stack *a, t_stack *b);
 t_stack	*find_smallest(t_stack *stack);
 t_stack	*return_cheapest(t_stack *stack);
 int		stack_len(t_stack *stack);
+void	simple_sort(t_stack **a);
 
 #endif

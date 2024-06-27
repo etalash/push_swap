@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:25:49 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/25 16:14:09 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 14:22:58 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,41 +44,40 @@ void	free_argv(char **argv)
 	free(argv - 1);
 }
 
-// int	syntax_error(char *argv)
+// int	syntax_error(char *str_nbr)
 // {
-// 	int	i;
-
-// 	i = 0;
-// 	if (argv[i] == '-' || argv[i] == '+')
-// 	{
-// 		i++;
-// 		if (!(argv[i] >= '0' && argv[i] <= '9'))
-// 		{
-// 			return (1);
-// 		}
-// 	}
-// 	else if (!(argv[i] >= '0' && argv[i] <= '9'))
+// 	if (!(*str_nbr == '+'
+// 			|| *str_nbr == '-'
+// 			|| (*str_nbr >= '0' && *str_nbr <= '9')))
 // 		return (1);
-// 	while (argv[i])
+// 	if ((*str_nbr == '+'
+// 			|| *str_nbr == '-')
+// 		&& !(str_nbr[1] >= '0' && str_nbr[1] <= '9'))
+// 		return (1);
+// 	while (*++str_nbr)
 // 	{
-// 		if (!(argv[i] >= '0' && argv[i] <= '9'))
+// 		if (!(*str_nbr >= '0' && *str_nbr <= '9'))
 // 			return (1);
-// 		i++;
 // 	}
 // 	return (0);
 // }
 
-int	syntax_error(const char *argv)
+bool	syntax_error(const char *str)
 {
-	int i = 0;
-	if (argv[0] == '-' || argv[0] == '+')
-		i++;
-	for (; argv[i]; i++)
+	if (*str == '\0')
+		return (true);
+
+	if (*str == '+' || *str == '-')
+		str++;
+	if (*str < '0' || *str > '9')
+		return (true);
+	while (*str)
 	{
-		if (argv[i] < '0' || argv[i] > '9')
-			return 1;
+		if (*str < '0' || *str > '9')
+			return (true);
+		str++;
 	}
-	return 0;
+	return (false);
 }
 
 void	dealloc(t_stack **a, char **argv, bool argc)

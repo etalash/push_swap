@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:06:43 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/25 18:23:34 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 16:07:36 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ static void	move_nodes(t_stack **a, t_stack **b)
 	t_stack	*cheapest_node;
 
 	cheapest_node = return_cheapest(*b);
-	if (cheapest_node->above_median
-		&& cheapest_node->target_node->above_median)
+	if (cheapest_node->target_node && cheapest_node->above_median
+			&& cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
@@ -87,25 +87,20 @@ static void	move_nodes(t_stack **a, t_stack **b)
 	pa(a, b, false);
 }
 
-/*
- * ~Push all nodes in B
- * ~For every configuration choose the "cheapest_node"
- * ~Push everything back in A in order
-*/
 void	push_swap(t_stack **a, t_stack **b)
 {
 	t_stack	*smallest;
-	int				len_a;
+	int		len_a;
 
 	len_a = stack_len(*a);
 	if (len_a == 5)
-		handle_five(a, b);
+		sort_five(a, b);
 	else
 	{
 		while (len_a-- > 3)
 			pb(b, a, false);
 	}
-	tiny_sort(a);
+	simple_sort(a);
 	while (*b)
 	{
 		init_nodes(*a, *b);
