@@ -1,7 +1,7 @@
 
 NAME = push_swap
-CC = cc -g
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 INCLUDES = -I $(LIBFT_DIR)/includes

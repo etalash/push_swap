@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 17:39:08 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 15:53:59 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 14:37:06 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ void	set_price(t_stack *a, t_stack *b)
 		b->push_price = b->current_position;
 		if (!(b->above_median))
 			b->push_price = len_b - (b->current_position);
-		if (b->target_node && b->target_node->above_median)
+		if (b->target_node->above_median)
 			b->push_price += b->target_node->current_position;
-		else if (b->target_node)
+		else
 			b->push_price += len_a - (b->target_node->current_position);
 		b = b->next;
 	}

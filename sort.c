@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:06:43 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 16:07:36 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 14:56:45 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ static void	move_nodes(t_stack **a, t_stack **b)
 	t_stack	*cheapest_node;
 
 	cheapest_node = return_cheapest(*b);
-	if (cheapest_node->target_node && cheapest_node->above_median
-			&& cheapest_node->target_node->above_median)
+	if (cheapest_node->above_median
+		&& cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
