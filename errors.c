@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:25:49 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 14:22:58 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/30 18:02:43 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,10 @@ void	free_argv(char **argv)
 	free(argv - 1);
 }
 
-// int	syntax_error(char *str_nbr)
-// {
-// 	if (!(*str_nbr == '+'
-// 			|| *str_nbr == '-'
-// 			|| (*str_nbr >= '0' && *str_nbr <= '9')))
-// 		return (1);
-// 	if ((*str_nbr == '+'
-// 			|| *str_nbr == '-')
-// 		&& !(str_nbr[1] >= '0' && str_nbr[1] <= '9'))
-// 		return (1);
-// 	while (*++str_nbr)
-// 	{
-// 		if (!(*str_nbr >= '0' && *str_nbr <= '9'))
-// 			return (1);
-// 	}
-// 	return (0);
-// }
-
 bool	syntax_error(const char *str)
 {
 	if (*str == '\0')
 		return (true);
-
 	if (*str == '+' || *str == '-')
 		str++;
 	if (*str < '0' || *str > '9')

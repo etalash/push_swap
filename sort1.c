@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 17:33:47 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 14:56:45 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/27 16:27:39 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,25 @@ bool	stack_sorted(t_stack *stack)
 
 // dont need this one
 
-// static t_stack	*find_highest(t_stack *stack)
-// {
-// 	int		highest;
-// 	t_stack	*highest_node;
+static t_stack	*find_highest(t_stack *stack)
+{
+	int		highest;
+	t_stack	*highest_node;
 
-// 	if (NULL == stack)
-// 		return (NULL);
-// 	highest = INT_MIN;
-// 	while (stack)
-// 	{
-// 		if (stack->nbr > highest)
-// 		{
-// 			highest = stack->nbr;
-// 			highest_node = stack;
-// 		}
-// 		stack = stack->next;
-// 	}
-// 	return (highest_node);
-// }
+	if (NULL == stack)
+		return (NULL);
+	highest = INT_MIN;
+	while (stack)
+	{
+		if (stack->nbr > highest)
+		{
+			highest = stack->nbr;
+			highest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (highest_node);
+}
 
 /*
  * When i have 3 nodes, easy to sort
@@ -54,18 +54,18 @@ bool	stack_sorted(t_stack *stack)
  * 	~Now i have forcefully the Biggest at the bottom
  * 		so i just chek 1° and 2°
 */
-// void	tiny_sort(t_stack **a)
-// {
-// 	t_stack	*highest_node;
+void	tiny_sort(t_stack **a)
+{
+	t_stack	*highest_node;
 
-// 	highest_node = find_highest(*a);
-// 	if (*a == highest_node)
-// 		ra(a, false);
-// 	else if ((*a)->next == highest_node)
-// 		rra(a, false);
-// 	if ((*a)->nbr > (*a)->next->nbr)
-// 		sa(a, false);
-// }
+	highest_node = find_highest(*a);
+	if (*a == highest_node)
+		ra(a, false);
+	else if ((*a)->next == highest_node)
+		rra(a, false);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a, false);
+}
 
 /*
  * Handle input 5

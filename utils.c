@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:47:02 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 14:27:41 by stalash          ###   ########.fr       */
+/*   Updated: 2024/06/30 17:21:02 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,43 @@
 /*
  * Find the smallest value node
 */
-t_stack	*find_smallest(t_stack *stack)
-{
-	long			smallest;
-	t_stack	*smallest_node;
+// t_stack	*find_smallest(t_stack *stack)
+// {
+// 	long			smallest;
+// 	t_stack	*smallest_node;
 
-	if (NULL == stack)
-		return (NULL);
-	smallest = LONG_MAX;
-	while (stack)
-	{
-		if (stack->nbr < smallest)
-		{
-			smallest = stack->nbr;
-			smallest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (smallest_node);
+// 	if (NULL == stack)
+// 		return (NULL);
+// 	smallest = LONG_MAX;
+// 	while (stack)
+// 	{
+// 		if (stack->nbr < smallest)
+// 		{
+// 			smallest = stack->nbr;
+// 			smallest_node = stack;
+// 		}
+// 		stack = stack->next;
+// 	}
+// 	return (smallest_node);
+// }
+
+t_stack *find_smallest(t_stack *stack) {
+    long smallest = LONG_MAX;
+    t_stack *smallest_node = NULL;
+
+    if (stack == NULL)
+        return NULL;
+
+    while (stack) {
+        if (stack->nbr < smallest) {
+            smallest = stack->nbr;
+            smallest_node = stack;
+        }
+        stack = stack->next;
+    }
+    return smallest_node;
 }
+
 
 /*
  * Return the cheapest node
@@ -97,7 +115,7 @@ int	stack_len(t_stack *stack)
 	i = 0;
 	while (stack)
 	{
-		i++;
+		++i;
 		stack = stack->next;
 	}
 	return (i);
