@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:38:46 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 14:55:28 by stalash          ###   ########.fr       */
+/*   Updated: 2024/07/13 16:34:49 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,29 +77,6 @@ void	add_to_stack_a(t_stack **a, char **argv, bool argc)
 	}
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	t_stack	*a;
-// 	t_stack	*b;
-
-// 	a = NULL;
-// 	b = NULL;
-	// if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-	// 	return (1);
-	// if (argc == 2)
-	// 	argv = s_split(argv[1], ' ');
-	// add_to_stack_a(&a, argv + 1, argc == 2);
-// 	if (sorted_stack(a) == 1)
-// 	{
-// 		if (stack_len(a) == 2 || stack_len(a) == 3)
-// 		{
-// 			sort_three(&a);
-// 			// printf("the param are sorted\n");
-// 		}
-// 	}
-// 	return (0);
-// }
-
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -110,7 +87,10 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
 	if (argc == 2)
+	{
 		argv = s_split(argv[1], ' ');
+		argv--;
+	}
 	add_to_stack_a(&a, argv + 1, argc == 2);
 	if (!stack_sorted(a))
 	{

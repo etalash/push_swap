@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:45:07 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/11 19:33:10 by stalash          ###   ########.fr       */
+/*   Updated: 2024/07/07 18:56:12 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ static char	**ft_extract_words(const char *s, char c, int word_count, \
 
 char	**s_split(char const *s, char c)
 {
+	static int	current_position = 0;
 	char		**empty;
 	int			word_count;
-	static int	current_position = 0;
 
 	if (!s || !*s)
 	{

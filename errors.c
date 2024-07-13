@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:25:49 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 14:22:58 by stalash          ###   ########.fr       */
+/*   Updated: 2024/07/12 11:39:53 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ bool	syntax_error(const char *str)
 {
 	if (*str == '\0')
 		return (true);
-
 	if (*str == '+' || *str == '-')
 		str++;
 	if (*str < '0' || *str > '9')
