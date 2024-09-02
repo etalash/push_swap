@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:31:02 by stalash           #+#    #+#             */
-/*   Updated: 2024/06/27 15:08:51 by stalash          ###   ########.fr       */
+/*   Updated: 2024/09/02 12:59:39 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,11 @@ t_stack	*find_smallest(t_stack *stack);
 t_stack	*return_cheapest(t_stack *stack);
 int		stack_len(t_stack *stack);
 void	simple_sort(t_stack **a);
+
+// static void	move_a_to_b(t_stack **a, t_stack **b);
+void	init_nodes_b(t_stack *a, t_stack *b);
+// static void	min_on_top(t_stack **a);
+t_stack	*find_min(t_stack *stack);
+// static void	set_target_a(t_stack *a, t_stack *b);
 
 #endif
