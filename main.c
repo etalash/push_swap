@@ -65,7 +65,7 @@ void	add_to_stack_a(t_stack **a, char **argv, bool argc)
 	i = 0;
 	while (argv[i] != NULL)
 	{
-		if (syntax_error(argv[i]) == 1)
+		if (syntax_error(argv[i]) == true)
 			dealloc(a, argv, argc);
 		num = ft_atol((const char *)argv[i]);
 		if (num < INT_MIN || num > INT_MAX)

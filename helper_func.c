@@ -144,8 +144,8 @@ static void	set_target_a(t_stack *a, t_stack *b)//Find `a` node's target in stac
 // 		if (b->target_node && b->target_node->above_median)
 // 			b->push_price += b->target_node->current_position;
 // 		else
-// 			if (b && b->push_price && b->target_node \
-// 				&& b->target_node->current_position)
+			// if (b && b->push_price && b->target_node 
+			// \	&& b->target_node->current_position)
 // 				b->push_price += len_a - (b->target_node->current_position);
 // 		b = b->next;
 // 	}
