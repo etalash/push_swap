@@ -30,24 +30,6 @@ static void	rotate(t_stack **h)
 	first_node->next = NULL;
 }
 
-// static void	rotate(t_stack **h)
-// {
-// 	int		len;
-// 	t_stack	*last_node;
-
-// 	len = stack_len(*h);
-// 	last_node = *h;
-// 	if (h == NULL || *h == NULL || len < 1)
-// 		return ;
-// 	while (last_node->next)
-// 		last_node = last_node->next;
-// 	last_node->next = *h;
-// 	(*h) = (*h)->next;
-// 	(*h)->prev = NULL;
-// 	last_node->next->prev = last_node;
-// 	last_node->next->next = NULL;
-// }
-
 void	ra(t_stack **a, bool check)
 {
 	rotate(a);

@@ -29,23 +29,6 @@ static void	revers_rotate(t_stack **h)
 	*h = last_node;
 }
 
-// static void	revers_rotate(t_stack **h)
-// {
-// 	int		len;
-// 	t_stack	*last_node;
-
-// 	len = stack_len(*h);
-// 	last_node = *h;
-// 	if (h == NULL || *h == NULL || len < 1)
-// 		return ;
-// 	while (last_node->next)
-// 		last_node = last_node->next;
-// 	(*h)->prev = last_node;
-// 	(*h)->prev->next = *h;
-// 	(*h)->prev->prev = NULL;
-// 	last_node->prev->next = NULL;
-// }
-
 void	rra(t_stack **a, bool check)
 {
 	revers_rotate(a);

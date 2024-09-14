@@ -12,48 +12,29 @@
 
 #include "push_swap.h"
 
-// int	stack_len(t_stack *stack)
-// {
-// 	int	i;
+t_stack	*find_max(t_stack *stack)
+{
+	long	max;
+	t_stack	*max_node;
 
-// 	i = 0;
-// 	while (stack)
-// 	{
-// 		i++;
-// 		stack = stack->next;
-// 	}
-// 	return (i);
-// }
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
+}
 
-/*
- * Find the smallest value node
-*/
-// t_stack	*find_smallest(t_stack *stack)
-// {
-// 	long			smallest;
-// 	t_stack			*smallest_node;
-
-// 	if (NULL == stack)
-// 		return (NULL);
-// 	smallest = LONG_MAX;
-// 	while (stack)
-// 	{
-// 		if (stack->nbr < smallest)
-// 		{
-// 			smallest = stack->nbr;
-// 			smallest_node = stack;
-// 		}
-// 		stack = stack->next;
-// 	}
-// 	return (smallest_node);
-// }
-
-/*
- * Find the smallest value node
-*/
 t_stack	*find_smallest(t_stack *stack)
 {
-	long			smallest;
+	long	smallest;
 	t_stack	*smallest_node;
 
 	if (NULL == stack)
@@ -71,10 +52,6 @@ t_stack	*find_smallest(t_stack *stack)
 	return (smallest_node);
 }
 
-/*
- * Return the cheapest node
- * that is already flagged
-*/
 t_stack	*return_cheapest(t_stack *stack)
 {
 	if (NULL == stack)

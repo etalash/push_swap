@@ -38,48 +38,22 @@ long	ft_atol(const char *s)
 	return (out * sign);
 }
 
-// t_stack	*get_cheapest(t_stack *stack) //Define a function that searches for the cheapest node, that is set by bool
-// {
-// 	if (!stack)
-// 		return (NULL);
-// 	while (stack)
-// 	{
-// 		if (stack->cheapest)
-// 			return (stack);
-// 		stack = stack->next;
-// 	}
-// 	return (NULL);
-// }
-
-
-
-t_stack	*find_min(t_stack *stack) //Define a function that searches a stack and returns the node with the smallest number
+t_stack	*find_min(t_stack *stack)
 {
-	long	min; //To store the smallest value so far
-	t_stack	*min_node; //To store a pointer that points to the smallest number
+	long	min;
+	t_stack	*min_node;
 
 	if (!stack)
 		return (NULL);
-	min = LONG_MAX; //Assign to the smallest value so far, the max long integer
-	while (stack) //Loop until the end of the stack is reached
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (stack->nbr < min) //Check if the current node value is smaller than the smallest so far
+		if (stack->nbr < min)
 		{
-			min = stack->nbr; //If so, update the smallest number so far
-			min_node = stack; //Set the pointer to point to the node with the smallest number so far
+			min = stack->nbr;
+			min_node = stack;
 		}
-		stack = stack->next; //Move to the next node for processing
+		stack = stack->next;
 	}
 	return (min_node);
 }
-
-// static void	min_on_top(t_stack **a) //Define a function that moves the smallest number to the top
-// {
-// 	while ((*a)->nbr != find_min(*a)->nbr) //As long as the smallest number is not at the top
-// 	{
-// 		if (find_min(*a)->above_median) //Rotate or reverse rotate according to the position of the node on the median
-// 			ra(a, false);
-// 		else
-// 			rra(a, false);
-// 	}
-// }

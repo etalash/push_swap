@@ -77,29 +77,6 @@ void	add_to_stack_a(t_stack **a, char **argv, bool argc)
 	}
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	t_stack	*a;
-// 	t_stack	*b;
-
-// 	a = NULL;
-// 	b = NULL;
-	// if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-	// 	return (1);
-	// if (argc == 2)
-	// 	argv = s_split(argv[1], ' ');
-	// add_to_stack_a(&a, argv + 1, argc == 2);
-// 	if (sorted_stack(a) == 1)
-// 	{
-// 		if (stack_len(a) == 2 || stack_len(a) == 3)
-// 		{
-// 			sort_three(&a);
-// 			// printf("the param are sorted\n");
-// 		}
-// 	}
-// 	return (0);
-// }
-
 int	main(int argc, char **argv)
 {
 	t_stack	*a;

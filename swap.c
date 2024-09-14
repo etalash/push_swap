@@ -30,22 +30,6 @@ static void	swap(t_stack **h)
 		first->next->prev = first;
 }
 
-// static void	swap(t_stack **h)
-// {
-// 	int	len;
-
-// 	len = stack_len(*h);
-// 	if (h == NULL || *h == NULL || len < 1)
-// 		return ;
-// 	*h = (*h)->next;
-// 	(*h)->prev->prev = *h;
-// 	(*h)->prev->next = (*h)->next;
-// 	if ((*h)->next)
-// 		(*h)->next->prev = (*h)->prev;
-// 	(*h)->next = (*h)->prev;
-// 	(*h)->prev = NULL;
-// }
-
 void	sa(t_stack **a, bool check)
 {
 	swap(a);

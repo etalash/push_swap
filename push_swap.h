@@ -13,20 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// # include <unistd.h>
-// # include <stdlib.h>
-// # include <limits.h>
-// # include "../libft/libft.h"
-// # include <stdio.h>
-// # include <stdbool.h>
-
-// typedef struct s_list_push_swap
-// {
-// 	int						nbr;
-// 	struct s_list_push_swap	*prev;
-// 	struct s_list_push_swap	*next;
-// }				t_stack;
-
 # include <stdlib.h>
 # include "./libft/libft.h"
 # include <limits.h>
@@ -46,9 +32,7 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }				t_stack;
 
-// errors, and some other subordinate functions
-
-// int		syntax_error(char *argv);
+// errors and some other subordnet function
 
 bool	syntax_error(const char *str);
 long	ft_atol(const char *s);
@@ -56,7 +40,6 @@ char	**s_split(char const *s, char c);
 void	deallocation(t_stack **a);
 void	dealloc(t_stack **a, char **argv, bool argc);
 int		repeated_num(t_stack *stack, int num);
-// int		stack_len(t_stack *stack);
 
 // swap, rotate, revers_rotate, push
 
@@ -72,30 +55,25 @@ void	rrr(t_stack **a, t_stack **b, bool check);
 void	pa(t_stack **a, t_stack **b, bool check);
 void	pb(t_stack **a, t_stack **b, bool check);
 
-// sorting params
+// functions for process of the Alguritum
 
-// int		sorted_stack(t_stack *a);
-// void	sort_three(t_stack **a);
-
-// soring
 bool	stack_sorted(t_stack *stack);
-// void	tiny_sort(t_stack **a);
-void	sort_five(t_stack **a, t_stack **b);
 void	finish_rotation(t_stack **stack, t_stack *top_node, char stack_name);
 void	push_swap(t_stack **a, t_stack **b);
 void	set_current_position(t_stack *stack);
-void	set_price(t_stack *a, t_stack *b);
 void	set_cheapest(t_stack *b);
 void	init_nodes(t_stack *a, t_stack *b);
 t_stack	*find_smallest(t_stack *stack);
 t_stack	*return_cheapest(t_stack *stack);
 int		stack_len(t_stack *stack);
 void	simple_sort(t_stack **a);
-
-// static void	move_a_to_b(t_stack **a, t_stack **b);
 void	init_nodes_b(t_stack *a, t_stack *b);
-// static void	min_on_top(t_stack **a);
 t_stack	*find_min(t_stack *stack);
-// static void	set_target_a(t_stack *a, t_stack *b);
+t_stack	*get_cheapest(t_stack *stack);
+void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
+void	reverse_rotate_both(t_stack **a, t_stack **b, \
+								t_stack *cheapest_node);
+void	finish_rotation(t_stack **stack, t_stack *top_node, char stack_name);
+t_stack	*find_max(t_stack *stack);
 
 #endif
