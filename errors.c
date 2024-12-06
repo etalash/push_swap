@@ -33,7 +33,7 @@ void	free_argv(char **argv)
 {
 	int	i;
 
-	i = -1;
+	i = 0;
 	if (argv == NULL || *argv == NULL)
 		return ;
 	while (argv[i])
@@ -41,7 +41,7 @@ void	free_argv(char **argv)
 		free(argv[i]);
 		i++;
 	}
-	free(argv - 1);
+	free(argv);
 }
 
 bool	syntax_error(const char *str)
