@@ -78,7 +78,7 @@ make
 
 ## 👀 Visualizer
 
-A real **42 push_swap visualizer** was used to generate the GIF shown above, running the algorithm with **100+ numbers**.
+The visualization 42 represents the behavior of the algorithm when sorting a large input set, illustrating how stacks A and B evolve during the sorting process.
 
 Visualizers help validate:
 
